@@ -1,0 +1,6 @@
+#---------------------------------------------
+# TINT2CONF CONFIG FILE
+default_theme = /home/karol/.config/tint2/default.tint2rc
+width = 500
+height = 350
+
