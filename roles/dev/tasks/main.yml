@@ -1,0 +1,7 @@
+- name: Adding Sublime Text 3 repository
+  sudo: yes
+  apt_repository: repo=ppa:webupd8team/sublime-text-3
+
+- name: Install Sublime Text 3
+  sudo: yes
+  apt: pkg=sublime-text

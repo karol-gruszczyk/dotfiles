@@ -1,0 +1,11 @@
+- name: Installing VirtualBox
+  sudo: yes
+  apt: pkg=virtualbox
+
+- name: Installing Vagrant
+  sudo: yes
+  apt: pkg=vagrant
+
+- name: Installing Vagrant LXC
+  sudo: yes
+  shell: vagrant plugin install vagrant-lxc

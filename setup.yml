@@ -1,0 +1,8 @@
+- hosts: all
+  roles:
+    - python
+    - shell
+    - ssh
+    - vm
+    - apps
+    - terminal

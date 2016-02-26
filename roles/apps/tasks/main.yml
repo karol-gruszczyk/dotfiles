@@ -1,0 +1,11 @@
+- name: Installing Google Chrome
+  sudo: yes
+  apt: pkg=google-chrom-stable
+
+- name: Adding Tor Browser repository
+  sudo: yes
+  apt_repository: repo=ppa:webupd8team/tor-browser
+
+- name: Installing Tor Browser
+  sudo: yes
+  apt: pkg=tor-browser update_cache=yes

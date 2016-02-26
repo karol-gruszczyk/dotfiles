@@ -1,0 +1,7 @@
+- name: Installing terminator
+  sudo: yes
+  apt: pkg=terminator
+
+- name: Making terminator default terminal
+  sudo: yes
+  shell: gsettings set org.gnome.desktop.default-applications.terminal exec $(which terminator)
