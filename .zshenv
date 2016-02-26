@@ -1,2 +1,3 @@
-typeset -U path
-path=(~/bin /other/things/in/path $path)
+export DATABASE_NAME=vazaoscar
+export DATABASE_USER=postgres
+export DATABASE_PASS=root
