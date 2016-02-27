@@ -6,3 +6,6 @@
 
 - name: Setting Git global user name
   shell: git config --global user.name karol-gruszczyk
+
+- name: Setting Git global push default
+  shell: git config --global push.default simple
