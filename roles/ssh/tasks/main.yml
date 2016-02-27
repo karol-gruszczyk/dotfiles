@@ -1,6 +1,0 @@
-- name: Install SSH client
-  apt: pkg=openssh-client update_cache=true
-  sudo: yes
-
-- name: Copying SSH configuration
-  copy: src=config_files/ssh_config dest=~/.ssh/config

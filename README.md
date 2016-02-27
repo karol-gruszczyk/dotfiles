@@ -1,19 +1,30 @@
 # Setup for clear ubuntu
 
-Just run the following to setup your new installation:
-* Clone repository
+### Requirements
+* Git
 ```bash
-git clone git@github.com:karol-gruszczyk/dotfiles.git
-cd dotfiles/
+sudo apt-get update
+sudo apt-get install git
 ```
-* Install ansible
+
+* Ansible
 ```bash
 sudo apt-get install software-properties-common
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get install ansible
 ```
+
+### Setup
+Just run the following to setup your new installation:
+
+* Clone repository
+```bash
+git clone https://github.com/karol-gruszczyk/dotfiles.git
+cd dotfiles/
+```
+
 * Run the playbook
 ```bash
-ansible-playbook -i "localhost," -c local setup.yml
+ansible-playbook -i "localhost," -c local setup.yml --ask-sudo
 ```

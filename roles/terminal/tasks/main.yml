@@ -1,7 +1,10 @@
 - name: Installing terminator
-  sudo: yes
-  apt: pkg=terminator
+  become: yes
+  apt: pkg=terminator update_cache=yes
+
+- name: Copying terminator config
+  copy: src=config_files/terminator_config dest=~/.config/terminator/config
 
 - name: Making terminator default terminal
-  sudo: yes
+  become: yes
   shell: gsettings set org.gnome.desktop.default-applications.terminal exec $(which terminator)

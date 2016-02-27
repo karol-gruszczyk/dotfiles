@@ -1,8 +1,9 @@
 - hosts: all
   roles:
-    - python
-    - shell
-    - ssh
-    - vm
-    - apps
-    - terminal
+#    - python
+#    - shell
+#    - terminal
+    - ssh-git
+#    - vm
+#    - apps
+#    - dev

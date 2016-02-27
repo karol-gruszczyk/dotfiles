@@ -1,11 +1,21 @@
 - name: Installing VirtualBox
-  sudo: yes
+  become: yes
   apt: pkg=virtualbox
 
 - name: Installing Vagrant
-  sudo: yes
+  become: yes
   apt: pkg=vagrant
 
+- name: Installing required vagrant-lxc packages
+  become: yes
+  apt: name={{ item }}
+  with_items:
+    - lxc
+    - lxc-templates
+    - cgroup-lite
+    - redir
+    - zlib1g-dev
+
 - name: Installing Vagrant LXC
-  sudo: yes
+  become: yes
   shell: vagrant plugin install vagrant-lxc

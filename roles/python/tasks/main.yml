@@ -1,5 +1,5 @@
 - name: Install python packages
-  sudo: yes
+  become: yes
   apt: name={{ item }} update_cache=true
   with_items:
     - git

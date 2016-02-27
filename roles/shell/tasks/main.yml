@@ -1,12 +1,12 @@
 - name: Install Z shell packages
-  sudo: yes
+  become: yes
   apt: name={{ item }} update_cache=true
   with_items:
     - git
     - zsh
 
 - name: Make zsh default shell
-  sudo: yes
+  become: yes
   shell: chsh -s $(which zsh)
 
 - name: Install Oh my Zsh

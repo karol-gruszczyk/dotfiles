@@ -1,7 +1,22 @@
 - name: Adding Sublime Text 3 repository
-  sudo: yes
+  become: yes
   apt_repository: repo=ppa:webupd8team/sublime-text-3
 
-- name: Install Sublime Text 3
-  sudo: yes
+- name: Installing Sublime Text 3
+  become: yes
   apt: pkg=sublime-text
+
+- name: Installing useful packages
+  become: yes
+  apt: name={{ item }}
+  with_items:
+    - vim
+    - htop
+
+- name: Adding JDK repository
+  become: yes
+  apt_repository: repo=ppa:webupd8team/java
+
+- name: Installing Java 8
+  become: yes
+  apt: pkg=oracle-java8-installer update_cache=true
