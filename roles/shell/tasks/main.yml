@@ -7,7 +7,7 @@
 
 - name: Make zsh default shell
   become: yes
-  shell: chsh -s $(which zsh)
+  shell: chsh -s $(which zsh) $(whoami)
 
 - name: Install Oh my Zsh
   git:
