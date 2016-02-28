@@ -18,5 +18,8 @@
   become: yes
   apt: pkg=tor-browser update_cache=yes
 
+- name: Installing Dropbox
+  shell: cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+
 - name: Copying Template files
   shell: cp config_files/templates/* ~/Templates/

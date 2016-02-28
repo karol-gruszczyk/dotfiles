@@ -2,6 +2,14 @@
   become: yes
   apt: pkg=virtualbox
 
+- name: Adding user to vboxusers group
+  become: yes
+  shell: adduser $(whoami) vboxusers
+
+- name: Installing VirtualBox Extensions Pack
+  become: yes
+  apt: pkg=virtualbox-ext-pack
+
 - name: Installing Vagrant
   become: yes
   apt: pkg=vagrant

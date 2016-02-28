@@ -1,0 +1,6 @@
+- name: Installing Ubuntu Tweak Tools
+  become: yes
+  apt: name={{ item }}
+  with_items:
+    - unity-tweak-tool
+    - gnome-tweak-tool
