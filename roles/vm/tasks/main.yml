@@ -27,3 +27,7 @@
 - name: Installing Vagrant LXC
   become: yes
   shell: vagrant plugin install vagrant-lxc
+
+- name: Adding Vagrant LXC to sudoers
+  become: yes
+  shell: vagrant lxc sudoers
