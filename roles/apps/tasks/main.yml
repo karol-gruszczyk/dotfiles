@@ -1,22 +1,6 @@
-- name: Downloading Google Chrome
-  get_url:
-    url=https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    dest=.
-
 - name: Installing Google Chrome
   become: yes
-  apt: deb=google-chrome-stable_current_amd64.deb
-
-- name: Removing Google Chrome installation
-  file: path=google-chrome-stable_current_amd64.deb state=absent
-
-- name: Adding Tor Browser repository
-  become: yes
-  apt_repository: repo=ppa:webupd8team/tor-browser
-
-- name: Installing Tor Browser
-  become: yes
-  apt: pkg=tor-browser update_cache=yes
+  apt: deb=https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
 - name: Installing Dropbox
   shell: cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -

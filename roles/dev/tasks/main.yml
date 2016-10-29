@@ -1,10 +1,6 @@
-- name: Adding Sublime Text 3 repository
-  become: yes
-  apt_repository: repo=ppa:webupd8team/sublime-text-3
-
 - name: Installing Sublime Text 3
   become: yes
-  apt: pkg=sublime-text
+  apt: deb=https://download.sublimetext.com/sublime-text_build-3126_amd64.deb
 
 - name: Installing useful packages
   become: yes
@@ -12,11 +8,3 @@
   with_items:
     - vim
     - htop
-
-- name: Adding JDK repository
-  become: yes
-  apt_repository: repo=ppa:webupd8team/java
-
-- name: Installing Java 8
-  become: yes
-  apt: pkg=oracle-java8-installer update_cache=true

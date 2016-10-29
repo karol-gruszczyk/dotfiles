@@ -1,3 +1,6 @@
+- name: Create .ssh directory
+  file: path=~/.ssh state=directory
+
 - name: Copying SSH configuration
   copy: src=config_files/ssh_config dest=~/.ssh/config
 

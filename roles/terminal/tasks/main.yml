@@ -2,6 +2,9 @@
   become: yes
   apt: pkg=terminator update_cache=yes
 
+- name: Create terminator config directory
+  file: path=~/.config/terminator state=directory
+
 - name: Copying terminator config
   copy: src=config_files/terminator_config dest=~/.config/terminator/config
 
