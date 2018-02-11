@@ -1,0 +1,15 @@
+#!/bin/bash
+
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brew install git wget nano htop
+
+brew cask install dropbox atom firefox slack spotify sublime-text
+
+brew cask install iterm2
+brew install zsh
+
+bash <(curl -s https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/common.sh)
+
+brew install python3
+pip install virtualenv
