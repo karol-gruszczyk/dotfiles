@@ -2,9 +2,9 @@
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install git wget nano htop
+brew install git wget nano htop watch
 
-brew cask install dropbox atom firefox slack spotify sublime-text
+brew cask install dropbox atom firefox slack spotify sublime-text ngrok
 
 brew cask install iterm2
 brew install zsh
