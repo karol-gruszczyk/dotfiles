@@ -4,7 +4,7 @@
 
 brew install git wget nano htop watch
 
-brew cask install dropbox atom firefox slack spotify sublime-text ngrok
+brew cask install dropbox atom google-chrome firefox slack spotify sublime-text ngrok docker pycharm
 
 brew cask install iterm2
 brew install zsh
