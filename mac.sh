@@ -13,3 +13,4 @@ bash <(curl -s https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master
 
 brew install python3
 pip3 install --upgrade pip setuptools wheel
+pip install virtualenv
