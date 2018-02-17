@@ -1,6 +1,7 @@
 #!/bin/bash
 
 curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.zshrc > ~/.zshrc
+curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.aliases > ~/.aliases
 
 chsh -s $(which zsh)
 
