@@ -102,15 +102,19 @@ source $HOME/.aliases
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-function gd {
+function subldiff {
     git diff $1 > /tmp/gitdiff
-    atom /tmp/gitdiff
+    subl /tmp/gitdiff
 }
 
 function amend {
-    git add $1
-    git commit --amend
+    git add $@
+    git commit --amend --no-edit
     git push -f
 }
 
 alias git-lines="git ls-files | xargs wc -l"
+
+export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
+  

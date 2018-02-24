@@ -11,6 +11,6 @@ brew install zsh
 
 bash <(curl -s https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/common.sh)
 
-brew install python3
+brew install python3 nvm
 pip3 install --upgrade pip setuptools wheel
 pip install virtualenv

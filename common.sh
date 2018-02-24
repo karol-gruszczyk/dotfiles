@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir ~/.nvm
+
 curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.zshrc > ~/.zshrc
 curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.aliases > ~/.aliases
 
