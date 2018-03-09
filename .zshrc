@@ -117,5 +117,6 @@ alias git-lines="git ls-files | xargs wc -l"
 
 export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
-  
+
+DEFAULT_USER=$USER
 source ~/venv/bin/activate
