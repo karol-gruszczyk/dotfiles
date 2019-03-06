@@ -60,7 +60,6 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  osx
   docker
   pip
   python
@@ -69,7 +68,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.aliases
 
 # User configuration
 
@@ -100,8 +98,6 @@ source $HOME/.aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 function subldiff {
     git diff $1 > /tmp/gitdiff
     subl /tmp/gitdiff
@@ -115,8 +111,4 @@ function amend {
 
 alias git-lines="git ls-files | xargs wc -l"
 
-export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
-
 DEFAULT_USER=$USER
-source ~/venv/bin/activate
