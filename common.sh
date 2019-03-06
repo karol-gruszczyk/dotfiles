@@ -3,7 +3,6 @@
 mkdir ~/.nvm
 
 curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.zshrc > ~/.zshrc
-curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.aliases > ~/.aliases
 
 mkdir ~/.ssh
 curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.ssh/config > ~/.ssh/config
