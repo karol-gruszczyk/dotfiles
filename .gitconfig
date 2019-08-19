@@ -1,0 +1,5 @@
+[user]
+	email = karol.gruszczyk@gmail.com
+	name = karol-gruszczyk
+[core]
+	editor = subl --wait
