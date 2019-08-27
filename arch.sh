@@ -3,20 +3,25 @@
 set -e
 set -o xtrace
 
-sudo apt update
-sudo apt dist-upgrade -y
+sudo pacman -Syu
+sudo pacman -S linux-headers
+sudo pacman -S base-devel htop nmap cmake
 
 # graphics
-sudo add-apt-repository ppa:graphics-drivers/ppa
-sudo apt update
-sudo apt dist-upgrade -y
+sudo mhwd -a pci nonfree 0300
 
 # git
-sudo apt install -y git
+sudo pacman -S git
 curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.gitconfig > ~/.gitconfig
 
+# yay
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd .. && rm -rf yay
+
 # terminator
-sudo apt install -y terminator
+sudo pacman -S terminator
 mkdir -p ~/.config/terminator
 curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.config/terminator/config > ~/.config/terminator/config
 
@@ -29,8 +34,9 @@ rm -rf fonts
 curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.gdbinit > ~/.gdbinit
 
 # python
-sudo apt install -y python3-pip python3-dev
-pip3 install -U virtualenv
+sudo pacman -S python-pip
+echo 'export PATH="/home/karol/.local/bin:$PATH"' >> ~/.zshrc
+pip install --user virtualenv
 
 # npm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
@@ -40,33 +46,35 @@ export NVM_DIR="$HOME/.nvm"
 nvm install node
 
 # zsh
-sudo apt install -y zsh
+sudo pacman -S zsh
 rm -rf ~/.oh-my-zsh/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.zshrc > ~/.zshrc
 
 # docker
-sudo apt install -y docker docker-compose
+sudo pacman -S docker docker-compose
+sudo systemctl start docker
+sudo systemctl enable docker
 sudo usermod -a -G docker ${USER}
 
-# snap
-sudo apt install -y snapd
-sudo snap install slack --classic
-sudo snap install sublime-text --classic
-sudo snap install spotify
-sudo snap install ngrok
+# misc
+yay -S google-chrome slack-desktop sublime-text spotify ngrok jetbrains-toolbox
 
 # brew
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> ~/.zshrc
 
-# misc
-sudo apt install -y google-chrome-stable
-sudo apt install -y htop nmap cmake
+# aws
+pip3 install --user awscli
+aws configure
+
+# BlackArch
+curl -O https://blackarch.org/strap.sh
+chmod +x strap.sh
+sudo ./strap.sh
+rm strap.sh
+
+# IDEs
 echo "Download JetBrains toolbox:"
 echo "https://www.jetbrains.com/toolbox/app/"
-
-# aws
-pip3 install -U awscli
-aws configure
