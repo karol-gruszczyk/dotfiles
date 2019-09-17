@@ -1,10 +1,6 @@
-# Ubuntu
+# dotfiles
 ```bash
-sudo apt install curl
-bash <(curl -s https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/ubuntu.sh)
-```
-
-# Arch
-```bash
-bash <(curl -s https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/arch.sh)
+git clone git@github.com:karol-gruszczyk/dotfiles.git
+cd dotfiles
+./<distro>.sh
 ```

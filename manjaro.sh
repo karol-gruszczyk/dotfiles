@@ -3,7 +3,9 @@
 set -e
 set -o xtrace
 
-sudo pacman -Syu
+# setup
+sudo pacman-mirrors --geoip
+sudo pacman -Syyu
 sudo pacman -S linux-headers
 sudo pacman -S base-devel htop nmap cmake
 
@@ -11,8 +13,7 @@ sudo pacman -S base-devel htop nmap cmake
 sudo mhwd -a pci nonfree 0300
 
 # git
-sudo pacman -S git
-curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.gitconfig > ~/.gitconfig
+cp .gitconfig ~
 
 # yay
 git clone https://aur.archlinux.org/yay.git
@@ -23,7 +24,7 @@ cd .. && rm -rf yay
 # terminator
 sudo pacman -S terminator
 mkdir -p ~/.config/terminator
-curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.config/terminator/config > ~/.config/terminator/config
+cp .config/terminator/* ~/.config/terminator/
 
 # fonts
 git clone https://github.com/powerline/fonts.git --depth=1
@@ -35,10 +36,10 @@ sudo pacman -S zsh
 rm -rf ~/.oh-my-zsh/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.zshrc > ~/.zshrc
+cp .zshrc ~
 
 # GDB
-curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.gdbinit > ~/.gdbinit
+cp .gdbinit ~
 
 # python
 sudo pacman -S python-pip
@@ -66,14 +67,12 @@ sudo usermod -a -G docker ${USER}
 # misc
 yay -S google-chrome slack-desktop sublime-text spotify ngrok jetbrains-toolbox
 
-# brew
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> ~/.zshrc
-
 # aws
 pip3 install --user awscli
 aws configure
 
-# IDEs
-echo "Download JetBrains toolbox:"
-echo "https://www.jetbrains.com/toolbox/app/"
+# startup
+cp .config/autostart/* ~/.config/autostart/
+
+# dconf
+dconf load / < dconf-settings.ini  # dconf dump / > dconf-settings.ini
