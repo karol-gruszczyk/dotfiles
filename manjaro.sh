@@ -13,7 +13,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo pacman-mirrors --geoip
 sudo pacman -Syyu
 sudo pacman -S linux-headers
-sudo pacman -S base-devel htop nmap cmake
+sudo pacman -S base-devel htop nmap cmake jq
 
 # git
 cp .gitconfig ~
