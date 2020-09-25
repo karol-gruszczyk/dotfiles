@@ -105,10 +105,13 @@ function subldiff {
 
 function amend {
     git add $@
-    git commit --amend --no-edit
+    git commit --amend --no-edit -n
     git push -f
 }
 
 alias git-lines="git ls-files | xargs wc -l"
 
 DEFAULT_USER=$USER
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
+eval "$(register-python-argcomplete3 cli)"

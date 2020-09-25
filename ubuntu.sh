@@ -6,6 +6,8 @@ set -o xtrace
 sudo apt update
 sudo apt dist-upgrade -y
 
+sudo apt install -y curl
+
 # graphics
 sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt update
@@ -62,7 +64,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/i
 echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> ~/.zshrc
 
 # misc
-sudo apt install -y google-chrome-stable
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+sudo apt-get update
+sudo apt-get install google-chrome-stable
+
 sudo apt install -y htop nmap cmake
 echo "Download JetBrains toolbox:"
 echo "https://www.jetbrains.com/toolbox/app/"

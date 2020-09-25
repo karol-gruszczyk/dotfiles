@@ -10,6 +10,7 @@
     background_type = transparent
     cursor_color = "#aaaaaa"
     font = Source Code Pro for Powerline Medium 12
+    scrollback_lines = 10000
     use_system_font = False
 [layouts]
   [[default]]

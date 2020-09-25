@@ -4,7 +4,7 @@ set -e
 set -o xtrace
 
 # enable deep suspend
-sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT/# &/' /etc/default/grub
+sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT/# &/' /etc/default/grub
 NEW_GRUB_CMDLINE='GRUB_CMDLINE_LINUX_DEFAULT="mem_sleep_default=deep"'
 sudo sed -i "0,/# GRUB_CMDLINE_LINUX_DEFAULT/s/# GRUB_CMDLINE_LINUX_DEFAULT/${NEW_GRUB_CMDLINE}\n&/" /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
@@ -30,53 +30,6 @@ sudo pacman -S bumblebee
 sudo usermod -a -G bumblebee ${USER}
 sudo pacman -S nvidia
 sudo pacman -S powertop
-yay -S unigine-valley
-sudo pacman -Rsn linux419-bbswitch
-echo '
-Section "ServerFlags"
-	Option "AutoAddGPU" "off"
-EndSection
-' | sudo tee /etc/X11/xorg.conf.d/01-noautogpu.conf
-echo '
-install ipmi_msghandler /usr/bin/false
-install ipmi_devintf /usr/bin/false
-' | sudo tee /etc/modprobe.d/disable-ipmi.conf
-echo '
-install nvidia /bin/false
-' | sudo tee /etc/modprobe.d/disable-nvidia.conf
-echo '
-blacklist nouveau
-blacklist rivafb
-blacklist nvidiafb
-blacklist rivatv
-blacklist nv
-blacklist nvidia
-blacklist nvidia-drm
-blacklist nvidia-modeset
-blacklist nvidia-uvm
-blacklist ipmi_msghandler
-blacklist ipmi_devintf
-' | sudo tee /etc/modprobe.d/blacklist.conf
-
-echo '
-[Unit]
-Description=Disables Nvidia GPU on OS shutdown
-
-[Service]
-Type=oneshot
-RemainAfterExit=true
-ExecStart=/bin/true
-ExecStop=/bin/bash -c "mv /etc/modprobe.d/disable-nvidia.conf.disable /etc/modprobe.d/disable-nvidia.conf || true"
-
-[Install]
-WantedBy=multi-user.target
-' | sudo tee /etc/systemd/system/disable-nvidia-on-shutdown.service
-sudo systemctl daemon-reload
-sudo systemctl enable disable-nvidia-on-shutdown.service
-
-echo '
-w /sys/bus/pci/devices/0000:01:00.0/power/control - - - - auto
-' | sudo tee /etc/tmpfiles.d/nvidia_pm.conf
 
 # terminator
 sudo pacman -S terminator
@@ -122,6 +75,8 @@ sudo systemctl enable docker
 sudo usermod -a -G docker ${USER}
 
 # misc
+gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2EBF997C15BDA244B6EBF5D84773BD5E130D1D45
 yay -S google-chrome slack-desktop sublime-text spotify ngrok jetbrains-toolbox
 
 # aws
@@ -131,5 +86,3 @@ aws configure
 # startup
 cp .config/autostart/* ~/.config/autostart/
 
-# dconf
-dconf load / < dconf-settings.ini  # dconf dump / > dconf-settings.ini
