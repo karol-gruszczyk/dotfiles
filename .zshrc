@@ -1,5 +1,4 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
@@ -27,7 +26,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=1
+export UPDATE_ZSH_DAYS=3
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -111,7 +110,4 @@ function amend {
 
 alias git-lines="git ls-files | xargs wc -l"
 
-DEFAULT_USER=$USER
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-
-eval "$(register-python-argcomplete3 cli)"
+eval "$(register-python-argcomplete cli)"
