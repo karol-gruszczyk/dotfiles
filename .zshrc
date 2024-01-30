@@ -1,4 +1,5 @@
 export PATH=$HOME/.local/bin:$PATH
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
