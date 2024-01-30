@@ -109,6 +109,6 @@ function amend {
 }
 
 alias git-lines="git ls-files | xargs wc -l"
-alias upgrade="sudo apt update && sudo apt dist-upgrade && sudo snap refresh"
+alias upgrade="sudo apt update && sudo apt dist-upgrade && sudo apt autoremove && sudo snap refresh && brew update && brew upgrade"
 
 eval "$(register-python-argcomplete cli)"
