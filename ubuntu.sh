@@ -31,8 +31,7 @@ rm -rf fonts
 curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.gdbinit > ~/.gdbinit
 
 # python
-sudo apt install -y python3-pip python3-dev
-pip install -U virtualenv argcomplete awscli
+sudo apt install -y python3-pip python3-dev python3-argcomplete
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 
 # zsh
