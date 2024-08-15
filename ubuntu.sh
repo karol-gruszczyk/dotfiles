@@ -42,10 +42,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 curl https://raw.githubusercontent.com/karol-gruszczyk/dotfiles/master/.zshrc > ~/.zshrc
 
-# docker
-sudo apt install -y docker docker-compose
-sudo usermod -a -G docker ${USER}
-
 # snap
 sudo snap install slack --classic
 sudo snap install sublime-text --classic
