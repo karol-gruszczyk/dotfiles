@@ -64,11 +64,12 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo usermod -a -G docker ${USER}
 
 # snap
-sudo snap install slack --classic
+sudo snap install slack
 sudo snap install sublime-text --classic
 sudo snap install spotify
 sudo snap install ngrok
 sudo snap install zoom-client
+sudo snap install pycharm-professional
 
 # chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -81,8 +82,6 @@ echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> ~/.zshrc
 brew install mkcert
 
 sudo apt install -y htop nmap cmake
-echo "Download JetBrains toolbox:"
-echo "https://www.jetbrains.com/toolbox/app/"
 
 # aws
 echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> ~/.zshrc
