@@ -6,7 +6,7 @@ set -o xtrace
 sudo apt update
 sudo apt dist-upgrade -y
 
-sudo apt install -y curl
+sudo apt install -y curl htop nmap cmake
 
 # graphics
 sudo add-apt-repository ppa:graphics-drivers/ppa
@@ -81,8 +81,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/i
 echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> ~/.zshrc
 
 brew install mkcert
-
-sudo apt install -y htop nmap cmake
 
 # aws
 echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> ~/.zshrc
