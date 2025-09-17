@@ -69,7 +69,7 @@ sudo snap install sublime-text --classic
 sudo snap install spotify
 sudo snap install ngrok
 sudo snap install zoom-client
-sudo snap install pycharm-professional
+sudo snap install pycharm-professional --classic
 sudo snap install aws-cli --classic
 
 # chrome
