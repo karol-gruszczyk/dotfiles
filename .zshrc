@@ -61,6 +61,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   git
   docker
+  docker-compose
   pip
   python
   pyenv
